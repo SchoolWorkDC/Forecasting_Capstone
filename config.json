@@ -1,0 +1,11 @@
+{
+    "data_source": "https://www.eia.gov/totalenergy/data/browser/csv.php?tbl=T01.03",
+    "target_column": "Value",
+    "description_column": "Description",
+    "date_column": "YYYYMM",
+    "date_format": "%Y%m",
+    "period_frequency": "M",
+    "max_train_date": "202112",
+    "title": "My Forecast Test",
+    "y_axis_label": "Unit"
+}
