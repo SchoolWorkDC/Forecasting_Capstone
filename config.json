@@ -6,6 +6,8 @@
     "date_format": "%Y%m",
     "period_frequency": "M",
     "max_train_date": "202112",
+    "prediction_start": "202201",
+    "predict_periods": 18,
     "title": "My Forecast Test",
     "y_axis_label": "Unit"
 }
