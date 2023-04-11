@@ -16,7 +16,7 @@ from forecast import Forecast
 from report import Report
 
 
-class Pipeline:
+class Pipeline: # pylint: disable=too-few-public-methods
     """
     A class used to execute the entire forecasting process, from data extraction
     to report generation.
@@ -32,8 +32,8 @@ class Pipeline:
         """
 
         config_file = os.path.join(os.path.dirname(__file__), 'config.json')
-        with open(config_file) as f:
-            self.config = json.load(f)
+        with open(config_file, encoding='utf-8') as file:
+            self.config = json.load(file)
 
     def run(self):
         """

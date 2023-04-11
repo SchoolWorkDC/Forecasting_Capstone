@@ -51,7 +51,7 @@ class Extract:
         filename = "datasetTest.csv"
         filepath = os.path.join(os.getcwd(), filename)
         print(f"Downloading {url}")
-        response = requests.get(url)
+        response = requests.get(url, timeout=30)
         with open(filepath, "wb") as file:
             file.write(response.content)
         return filepath
@@ -64,15 +64,14 @@ class Extract:
         :return: DataFrame, data in pandas DataFrame format.
         """
         if filepath.endswith('.csv'):
-            with open(filepath, 'r') as file:
+            with open(filepath, 'r', encoding='utf-8') as file:
                 content = file.read()
             return pd.read_csv(StringIO(content))
-        elif filepath.endswith('.xlsx'):
+        if filepath.endswith('.xlsx'):
             with open(filepath, 'rb') as file:
                 content = file.read()
             return pd.read_excel(BytesIO(content))
-        else:
-            raise ValueError(f"Unknown file type for {filepath}")
+        raise ValueError(f"Unknown file type for {filepath}")
 
     def create_train_sets(self, data):
         """

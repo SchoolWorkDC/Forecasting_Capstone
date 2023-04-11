@@ -8,6 +8,14 @@ import pandas as pd
 
 
 class Preprocess:
+    """
+        The Preprocess class is responsible for preparing the input data for forecasting
+        by performing various preprocessing steps on pandas DataFrames. These steps include
+        converting date columns to strings, eliminating invalid rows, converting date columns
+        back to datetime objects, and dropping non-numeric target rows. The class takes a
+        configuration dictionary as input, which contains the necessary information for
+        carrying out the preprocessing tasks.
+    """
     def __init__(self, config):
         """
         Initialize the Preprocess class with a configuration dictionary.
@@ -37,7 +45,7 @@ class Preprocess:
         :param data_dict: Dictionary containing pandas DataFrames.
         :return: Dictionary with updated DataFrames after converting date columns to strings.
         """
-        for name, dataframe in data_dict.items():
+        for _, dataframe in data_dict.items():
             dataframe[self.config['date_column']] = \
                 dataframe[self.config['date_column']].astype(str)
         return data_dict
@@ -59,9 +67,10 @@ class Preprocess:
         Convert the date column in each DataFrame back to a datetime object.
 
         :param data_dict: Dictionary containing pandas DataFrames.
-        :return: Dictionary with updated DataFrames after converting date columns to datetime objects.
+        :return: Dictionary with updated DataFrames
+        after converting date columns to datetime objects.
         """
-        for name, dataframe in data_dict.items():
+        for _, dataframe in data_dict.items():
             dataframe[self.config['date_column']] = \
                 pd.to_datetime(dataframe[self.config['date_column']],
                                format=self.config['date_format'])

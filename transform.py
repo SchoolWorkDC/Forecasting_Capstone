@@ -7,8 +7,6 @@ reformatting the date and target columns in a given set of data frames.
 
 """
 
-import pandas as pd
-
 
 class Transform:
     """
@@ -23,9 +21,11 @@ class Transform:
     Methods
     -------
     run(data_dict):
-        Transforms the data frames in the given data_dict according to the config and returns the transformed data_dict.
+        Transforms the data frames in the given data_dict according to the config and
+        returns the transformed data_dict.
     reformat_data_frames(data_dict):
-        Renames the date and target columns in the data frames of the given data_dict based on the config and filters only the renamed columns.
+        Renames the date and target columns in the data frames of the given data_dict
+        based on the config and filters only the renamed columns.
     """
 
     def __init__(self, config):
@@ -40,7 +40,8 @@ class Transform:
 
     def run(self, data_dict):
         """
-        Transforms the data frames in the given data_dict according to the config and returns the transformed data_dict.
+        Transforms the data frames in the given data_dict according to the config and
+        returns the transformed data_dict.
 
         Parameters
         ----------
@@ -57,7 +58,8 @@ class Transform:
 
     def reformat_data_frames(self, data_dict):
         """
-        Renames the date and target columns in the data frames of the given data_dict based on the config and filters only the renamed columns.
+        Renames the date and target columns in the data frames of the given data_dict
+        based on the config and filters only the renamed columns.
 
         Parameters
         ----------

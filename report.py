@@ -9,12 +9,12 @@ Example:
     report = Report(data_dict, forecasts, config)
     report.create_plots()
 """
-
+import os
 import plotly.graph_objs as go
 import plotly.offline as pyo
 
 
-class Report:
+class Report: # pylint: disable=too-few-public-methods
     """
     A class used to create visualizations of forecasted data using Plotly.
 
@@ -51,6 +51,11 @@ class Report:
             data = self.data_dict[name]
             forecast = self.forecasts[name]
 
+            # Check if the "Reports" folder exists, and create it if not
+            reports_folder = "Reports"
+            if not os.path.exists(reports_folder):
+                os.makedirs(reports_folder)
+
             # Create a Plotly figure object
             fig = go.Figure()
 
@@ -71,5 +76,6 @@ class Report:
             # Set the plot layout
             fig.update_layout(title=f"{name}", xaxis_title='Date', yaxis_title='Quadrillion Btu')
 
-            # Export the plot to an HTML file
-            pyo.plot(fig, filename=f'{name}_forecast.html')
+            # Export the plot to an HTML file inside the "Reports" folder
+            filename = os.path.join(reports_folder, f'{name}_forecast.html')
+            pyo.plot(fig, filename=filename)
