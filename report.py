@@ -74,7 +74,7 @@ class Report: # pylint: disable=too-few-public-methods
                                      line_color='rgba(0, 0, 255, 0.2)', name='Lower Bound'))
 
             # Set the plot layout
-            fig.update_layout(title=f"{name}", xaxis_title='Date', yaxis_title='Quadrillion Btu')
+            fig.update_layout(title=f"{name}", xaxis_title='Date', yaxis_title=self.config.get('y_axis_label'))
 
             # Export the plot to an HTML file inside the "Reports" folder
             filename = os.path.join(reports_folder, f'{name}_forecast.html')

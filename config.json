@@ -9,5 +9,5 @@
     "prediction_start": "202201",
     "predict_periods": 18,
     "title": "My Forecast Test",
-    "y_axis_label": "Unit"
+    "y_axis_label": "Quadrillion BTU"
 }
